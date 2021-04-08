@@ -1,4 +1,5 @@
 const UserModel = require('./UserModel')
+const { transformItem } = require('./UserTransformer')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const secret = 'MYSECRET'
@@ -22,11 +23,11 @@ module.exports = {
 
       const token = jwt.sign({id: user._id}, secret)
 
-      return res.status(200).json({user: userTransformer(user), token})
+      return res.status(200).json({user: transformItem(user), token})
 
     } catch(err) {
-
-      return res.status(404).json({message: 'Invalid Login'})
+      console.log(err)
+      return res.status(401).json({message: 'Invalid Login'})
 
     }
   },

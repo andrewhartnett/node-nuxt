@@ -32,8 +32,6 @@ export default {
   data() {
     return {
       user: {
-        firstname: '',
-        lastname: '',
         email: '',
         password: '',
         password2: '',
@@ -51,12 +49,20 @@ export default {
       }, null)
 
       if (!hasRequiredFields) {
-        this.$toast.error('Required fields missing')
+        this.$toast.show({
+          type: 'danger',
+          title: 'Error',
+          message: 'Missing required fields',
+        })
         return
       }
 
       if (this.user.password !== this.user.password2) {
-        this.$toast.error('Passwords must match')
+        this.$toast.show({
+          type: 'danger',
+          title: 'Error',
+          message: 'Passwords need to match',
+        })
         return
       }
 
@@ -66,10 +72,14 @@ export default {
           this.$store.commit('user/setUser', response.data.user)
           this.$store.commit('user/setToken', response.data.token)
           this.$toast.success('User Created Successfully')
-          return this.$router.push('profile')
+          return this.$router.push('dashboard')
         })
         .catch((err) => {
-          this.$toast.error('Something went wrong')
+          this.$toast.show({
+            type: 'danger',
+            title: 'Error',
+            message: err.message,
+          })
           console.log(err)
         })
     },

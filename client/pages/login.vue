@@ -46,7 +46,7 @@ export default {
           this.$store.commit('user/setUser', response.data.user)
           this.$store.commit('user/setToken', response.data.token)
           this.$toast.success('Login Successful')
-          console.log('Need to redirect them somewhere')
+          return this.$router.push('dashboard')
         })
         .catch((err) => {
           this.$toast.show({
