@@ -1,4 +1,4 @@
-import UserController from './users/UserController'
+const UserController = require('./users/UserController')
 
 module.exports = {
   register(app) {
@@ -13,6 +13,7 @@ module.exports = {
     app.use(require('./middleware/user'))
     app.use('/user', require('./users/routes'))
 
+    return app
   }
 
 }
