@@ -1,6 +1,18 @@
-const route = require('express').Router()
-const UserController = require('./controllers/UserController')
+import UserController from './users/UserController'
 
-route.get('/user', UserController.show)
+module.exports = {
+  register(app) {
+    app.get('/', (req, res) => {
+      return res.status(200).json({success: true})
+    })
 
-module.exports = route
+    app.post('/login', UserController.login)
+    app.post('/user', UserController.create)
+
+    // User Middleware
+    app.use(require('./middleware/user'))
+    app.use('/user', require('./users/routes'))
+
+  }
+
+}

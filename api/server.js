@@ -3,8 +3,9 @@ var app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 const busboy = require('connect-busboy')
+const routes = require('./app/routes')
 
-var mongoDB = 'mongodb://mongo:27017/myspace'
+var mongoDB = 'mongodb://mongo:27017/tweetatmycommand'
 
 const mongoConfig = {
   useFindAndModify: false,
@@ -20,11 +21,7 @@ app.use(express.json())
 app.use(busboy())
 
 // Register the routes
-app.use(require('./routes'))
-
-app.use(require('./app/middleware/user'))
-app.use('/app', require('./app/routes'))
-
+app = routes.register(app)
 
 // Not to confuse, but the app serves port 8080, and docker maps that to 3000
 // This is located in the docker-compose.yml file
