@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 var app = express()
 const cors = require('cors')
@@ -5,7 +6,7 @@ const mongoose = require('mongoose')
 const busboy = require('connect-busboy')
 const routes = require('./app/routes')
 
-var mongoDB = 'mongodb://mongo:27017/tweetatmycommand'
+var mongoDB = 'mongodb://mongo:27017/newproject'
 
 const mongoConfig = {
   useFindAndModify: false,
