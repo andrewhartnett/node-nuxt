@@ -1,63 +1,32 @@
 <template>
   <div>
-    <Nuxt />
+    <header
+      class="w-full md:bg-opacity-90 transition duration-300 ease-in-out border-b border-blue-300 mb-4"
+    >
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center justify-between h-16 md:h-20">
+          <div class="flex-shrink-0 mr-4">
+            <nuxt-link class="block text-xl" to="/"> New Project </nuxt-link>
+          </div>
+          <nav>
+            <ul class="flex flex-grow justify-end flex-wrap">
+              <li class="mr-2">
+                <nuxt-link class="block p-2" to="login">Sign In</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link
+                  class="block bg-blue-600 text-white p-2"
+                  to="register"
+                  >Sign Up</nuxt-link
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <Nuxt />
+    </main>
   </div>
 </template>
-
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-/* Sample `apply` at-rules with Tailwind CSS */
-.container {
-  @apply min-h-screen flex justify-center items-center mx-auto;
-}
-
-input {
-  @apply border border-gray-500 p-1;
-}
-
-button {
-  @apply block p-2 bg-gray-300;
-}
-
-button:hover {
-  @apply bg-gray-500;
-}
-
-button.primary {
-  @apply bg-green-500 text-white;
-}
-
-button.primary:hover {
-  @apply bg-green-700;
-}
-
-h1 {
-  @apply text-2xl;
-}
-
-h2 {
-  @apply text-xl;
-}
-
-h3 {
-  @apply text-lg;
-}
-</style>
