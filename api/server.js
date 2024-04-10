@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const busboy = require('connect-busboy')
 const routes = require('./app/routes')
 
-var mongoDB = 'mongodb://mongo:27017/newproject'
+var mongoDB = process.env.MONGO_URL
 
 const mongoConfig = {
   useFindAndModify: false,

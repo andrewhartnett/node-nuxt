@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  @apply w-5/6 mx-auto;
+}
+
+h1 {
+  @apply text-4xl;
+}
+
+input.full {
+  @apply w-full border border-gray-300;
+}

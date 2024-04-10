@@ -12,6 +12,7 @@ module.exports = {
     // User Middleware
     app.use(require('./middleware/user'))
     app.use('/user', require('./users/routes'))
+    app.use('/workout', require('./workout/routes'))
 
     return app
   }

@@ -6,18 +6,23 @@
       <form class="w-50">
         <div class="my-2">
           <label for="email">Email</label>
-          <input v-model="user.email" type="text" class="w-full" />
+          <input v-model="user.email" type="text" class="full" />
         </div>
         <div class="my-2">
           <label for="email">Password</label>
-          <input v-model="user.password" type="password" class="w-full" />
+          <input v-model="user.password" type="password" class="full" />
         </div>
         <div class="my-2">
           <label for="email">Repeat Password</label>
-          <input v-model="user.password2" type="password" class="w-full" />
+          <input v-model="user.password2" type="password" class="full" />
         </div>
         <div class="flex justify-between m-4">
-          <button class="primary" @click.prevent="create">Create</button>
+          <button
+            class="block bg-blue-600 p-2 text-white"
+            @click.prevent="create"
+          >
+            Create
+          </button>
           <nuxt-link to="login" class="block bg-gray-300 p-2 hover:bg-gray-500"
             >Back to Login</nuxt-link
           >

@@ -34,6 +34,16 @@
 
 <script>
 export default {
+  middleware({ store, redirect }) {
+    if (!store.state.user.token && localStorage.getItem('user')) {
+      store.commit('user/resetFromStorage')
+    }
+
+    if (store.state.user.token) {
+      redirect('/dashboard')
+    }
+  },
+
   data() {
     return {
       buttonLeft: {

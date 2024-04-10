@@ -6,7 +6,7 @@
       <form class="w-50">
         <div class="my-2">
           <label for="email">Email</label>
-          <input v-model="email" type="text" name="email" class="w-full" />
+          <input v-model="email" type="text" name="email" class="full" />
         </div>
         <div class="my-2">
           <label for="email">Password</label>
@@ -14,15 +14,20 @@
             v-model="password"
             type="password"
             name="password"
-            class="w-full"
+            class="full"
           />
         </div>
         <div class="flex justify-between m-4">
-          <button class="primary" @click.prevent="login">Login</button>
+          <button
+            class="block bg-blue-600 p-2 text-white"
+            @click.prevent="login"
+          >
+            Login
+          </button>
           <nuxt-link
-            to="create-account"
+            to="register"
             class="block bg-gray-300 p-2 hover:bg-gray-500"
-            >Create Account</nuxt-link
+            >Register</nuxt-link
           >
         </div>
       </form>

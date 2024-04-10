@@ -35,12 +35,16 @@ export const mutations = {
     state.user = { ...payload }
   },
   setToken(state, token) {
-    console.log('Setting Token')
     window.localStorage.setItem('token', token)
     state.token = token
   },
-  logout() {
+  logout(state) {
     window.localStorage.removeItem('token')
     window.localStorage.removeItem('user')
+    state.user = {
+      _id: '',
+      email: '',
+    }
+    state.token = ''
   },
 }

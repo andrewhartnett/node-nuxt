@@ -1,8 +1,10 @@
+<template>
+  <div></div>
+</template>
 <script>
 export default {
   created() {
-    localStorage.removeItem('user')
-    localStorage.removeItem('token')
+    this.$store.commit('user/logout')
     this.$router.push('login')
   },
 }
